@@ -213,7 +213,7 @@
     "Lagu ini lagu yg ku dengerin kalau lagi banyak masalah dan ngerasa berat jalanin beberapa tanggungan hidup. Menceritakan bahwa semua akan baik-baik saja, gak apa nangis tapi tetep berusaha, semua akan kembali baik."
   </p>
 
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="https://drive.google.com/file/d/172Cp38xcZ5BaqWZlRoXs7V5Poq-ARWn-/view?usp=sharing" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -423,10 +423,22 @@
   })(document.getElementById("pinkboard"));
 
   document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', function() {
-      const music = document.getElementById('bgMusic');
-      music.play().catch(e => console.log("Autoplay prevented:", e));
-    }, { once: true });
+    const music = document.getElementById('bgMusic');
+    let musicStarted = false;
+    
+    // Function to start music
+    function startMusic() {
+      if (!musicStarted) {
+        music.play().catch(e => console.log("Autoplay prevented:", e));
+        musicStarted = true;
+      }
+    }
+    
+    // Click anywhere on the body to start music
+    document.body.addEventListener('click', startMusic);
+    
+    // Also try to start on page load (might not work due to autoplay restrictions)
+    startMusic();
 
     const scrollDown = document.querySelector('.scroll-down');
     const musicSection = document.querySelector('.music-section');
