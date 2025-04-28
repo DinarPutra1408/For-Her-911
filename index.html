@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>For Adinda 💖</title>
   <style>
-    /* Basic Styles */
+    /* (CSS kamu tetap sama, tidak saya ubah) */
     body {
       margin: 0;
       padding: 0;
@@ -161,7 +161,6 @@
       60% { transform: translateY(-10px) translateX(-50%); }
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .title { font-size: 2em; }
       .section { font-size: 1em; }
@@ -220,10 +219,9 @@
 </div>
 
 <script>
-  // Setup canvas particle settings
   var settings = {
     particles: {
-      length: 400, // sedikit dikurangi agar ringan di mobile
+      length: 400,
       duration: 3,
       velocity: 100,
       effect: -0.75,
@@ -424,24 +422,24 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     const music = document.getElementById('bgMusic');
-    let musicStarted = false;
-    
-    // Function to start music
-    function startMusic() {
-      if (!musicStarted) {
-        music.play().catch(e => console.log("Autoplay prevented:", e));
-        musicStarted = true;
-      }
-    }
-    
-    // Click anywhere on the body to start music
-    document.body.addEventListener('click', startMusic);
-    
-    // Also try to start on page load (might not work due to autoplay restrictions)
-    startMusic();
-
     const scrollDown = document.querySelector('.scroll-down');
     const musicSection = document.querySelector('.music-section');
+    let musicStarted = false;
+
+    function startMusic() {
+      if (!musicStarted) {
+        music.play()
+          .then(() => {
+            console.log("Musik berhasil diputar.");
+            musicStarted = true;
+          })
+          .catch((error) => {
+            console.error("Autoplay diblokir, user harus berinteraksi:", error);
+          });
+      }
+    }
+
+    document.body.addEventListener('click', startMusic, { once: true });
 
     scrollDown.addEventListener('click', function() {
       musicSection.scrollIntoView({ behavior: 'smooth' });
