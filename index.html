@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For Adinda 💖</title>
+  <style>
+    /* Basic Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2c3e50, #fd746c);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .text-container {
+      text-align: center;
+      max-width: 600px;
+      padding: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    .section {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: appear 1s ease forwards;
+    }
+
+    .section:nth-child(2) { animation-delay: 1s; }
+    .section:nth-child(3) { animation-delay: 2s; }
+    .section:nth-child(4) { animation-delay: 3s; }
+    .section:nth-child(5) { animation-delay: 4s; }
+    .section:nth-child(6) { animation-delay: 5s; }
+    .section:nth-child(7) { animation-delay: 6s; }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    .scroll-down i {
+      font-size: 2em;
+      color: white;
+    }
+
+    .music-section {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .music-title {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ff6b81;
+      text-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
+    }
+
+    .music-description {
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .album-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .album-cover {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .album-cover:hover {
+      transform: scale(1.05);
+    }
+
+    .song-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .artist {
+      font-size: 1em;
+      color: #ddd;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-20px) translateX(-50%); }
+      60% { transform: translateY(-10px) translateX(-50%); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .title { font-size: 2em; }
+      .section { font-size: 1em; }
+      .album-cover { width: 150px; height: 150px; }
+    }
+
+    @media (max-width: 480px) {
+      .title { font-size: 1.8em; }
+      .section { font-size: 0.9em; }
+      .album-cover { width: 120px; height: 120px; }
+      .scroll-down i { font-size: 1.5em; }
+      .text-container, .music-section { padding: 15px; }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+<canvas id="pinkboard"></canvas>
+
+<div class="main-container">
+  <div class="text-container">
+    <div class="title">For Adinda (911&lt;3)</div>
+    <div class="section">Kamu gak boleh putus asa. Semangat terus, sama aku yang dikejar juga banyak banget.</div>
+    <div class="section">Soal hari ini dan kemarin, maaf ya aku terkesan selalu cari gara-gara.</div>
+    <div class="section">Aku selalu ingin kamu bahagia, jangan sedih ya, jangan bimbang juga.</div>
+    <div class="section">Aku minta maaf sebesar-besarnya, aku sangat menyesali sekali.</div>
+    <div class="section">Malah aku yang menyakiti hatimu, Adinda. Maaf ya, semangat terus!</div>
+    <div class="section">Aku akan selalu mantau kamu, jagain kamu, always selalu dan tidak akan pernah berubah. 💖</div>
+  </div>
+
+  <div class="scroll-down">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</div>
+
+<div class="music-section">
+  <h2 class="music-title">Lagu Penyemangat</h2>
+
+  <div class="album-container">
+    <img src="download (1).jpg" alt="Album Cover" class="album-cover">
+    <div class="song-title">we'll be okay, for today</div>
+    <div class="artist">by Arash Buana</div>
+  </div>
+
+  <p class="music-description">
+    "Lagu ini lagu yg ku dengerin kalau lagi banyak masalah dan ngerasa berat jalanin beberapa tanggungan hidup. Menceritakan bahwa semua akan baik-baik saja, gak apa nangis tapi tetep berusaha, semua akan kembali baik."
+  </p>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="We ll be okay for today Arash Buana feat Anya Taroreh LirikTerjemahan.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  // Setup canvas particle settings
+  var settings = {
+    particles: {
+      length: 400, // sedikit dikurangi agar ringan di mobile
+      duration: 3,
+      velocity: 100,
+      effect: -0.75,
+      size: 10,
+    },
+  };
+
+  (function() {
+    var b = 0;
+    var c = ["ms", "moz", "webkit", "o"];
+    for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) {
+      window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"];
+      window.cancelAnimationFrame =
+        window[c[a] + "CancelAnimationFrame"] ||
+        window[c[a] + "CancelRequestAnimationFrame"];
+    }
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = function(h, e) {
+        var d = new Date().getTime();
+        var f = Math.max(0, 16 - (d - b));
+        var g = window.setTimeout(function() { h(d + f); }, f);
+        b = d + f;
+        return g;
+      };
+    }
+    if (!window.cancelAnimationFrame) {
+      window.cancelAnimationFrame = function(d) {
+        clearTimeout(d);
+      };
+    }
+  })();
+
+  var Point = function(x, y) {
+    this.x = x || 0;
+    this.y = y || 0;
+  };
+  Point.prototype = {
+    clone: function() {
+      return new Point(this.x, this.y);
+    },
+    length: function(length) {
+      if (typeof length == "undefined") return Math.sqrt(this.x * this.x + this.y * this.y);
+      this.normalize();
+      this.x *= length;
+      this.y *= length;
+      return this;
+    },
+    normalize: function() {
+      var length = this.length();
+      this.x /= length;
+      this.y /= length;
+      return this;
+    }
+  };
+
+  var Particle = function() {
+    this.position = new Point();
+    this.velocity = new Point();
+    this.acceleration = new Point();
+    this.age = 0;
+  };
+  Particle.prototype = {
+    initialize: function(x, y, dx, dy) {
+      this.position.x = x;
+      this.position.y = y;
+      this.velocity.x = dx;
+      this.velocity.y = dy;
+      this.acceleration.x = dx * settings.particles.effect;
+      this.acceleration.y = dy * settings.particles.effect;
+      this.age = 0;
+    },
+    update: function(deltaTime) {
+      this.position.x += this.velocity.x * deltaTime;
+      this.position.y += this.velocity.y * deltaTime;
+      this.velocity.x += this.acceleration.x * deltaTime;
+      this.velocity.y += this.acceleration.y * deltaTime;
+      this.age += deltaTime;
+    },
+    draw: function(context, image) {
+      var ease = (t) => --t * t * t + 1;
+      var size = image.width * ease(this.age / settings.particles.duration);
+      context.globalAlpha = 1 - this.age / settings.particles.duration;
+      context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
+    }
+  };
+
+  var ParticlePool = function(length) {
+    this.particles = new Array(length);
+    for (var i = 0; i < this.particles.length; i++) {
+      this.particles[i] = new Particle();
+    }
+    this.firstActive = 0;
+    this.firstFree = 0;
+    this.duration = settings.particles.duration;
+  };
+  ParticlePool.prototype = {
+    add: function(x, y, dx, dy) {
+      this.particles[this.firstFree].initialize(x, y, dx, dy);
+      this.firstFree++;
+      if (this.firstFree == this.particles.length) this.firstFree = 0;
+      if (this.firstActive == this.firstFree) this.firstActive++;
+      if (this.firstActive == this.particles.length) this.firstActive = 0;
+    },
+    update: function(deltaTime) {
+      if (this.firstActive < this.firstFree) {
+        for (var i = this.firstActive; i < this.firstFree; i++) this.particles[i].update(deltaTime);
+      }
+      if (this.firstFree < this.firstActive) {
+        for (var i = this.firstActive; i < this.particles.length; i++) this.particles[i].update(deltaTime);
+        for (var i = 0; i < this.firstFree; i++) this.particles[i].update(deltaTime);
+      }
+      while (this.particles[this.firstActive].age >= this.duration && this.firstActive != this.firstFree) {
+        this.firstActive++;
+        if (this.firstActive == this.particles.length) this.firstActive = 0;
+      }
+    },
+    draw: function(context, image) {
+      if (this.firstActive < this.firstFree) {
+        for (var i = this.firstActive; i < this.firstFree; i++) this.particles[i].draw(context, image);
+      }
+      if (this.firstFree < this.firstActive) {
+        for (var i = this.firstActive; i < this.particles.length; i++) this.particles[i].draw(context, image);
+        for (var i = 0; i < this.firstFree; i++) this.particles[i].draw(context, image);
+      }
+    }
+  };
+
+  (function(canvas) {
+    var context = canvas.getContext("2d"),
+        particles = new ParticlePool(settings.particles.length),
+        particleRate = settings.particles.length / settings.particles.duration,
+        time;
+
+    function pointOnHeart(t) {
+      return new Point(
+        160 * Math.pow(Math.sin(t), 3),
+        130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
+      );
+    }
+
+    var image = (function() {
+      var canvas = document.createElement("canvas"),
+          context = canvas.getContext("2d");
+      canvas.width = settings.particles.size;
+      canvas.height = settings.particles.size;
+      function to(t) {
+        var point = pointOnHeart(t);
+        point.x = settings.particles.size / 2 + (point.x * settings.particles.size) / 350;
+        point.y = settings.particles.size / 2 - (point.y * settings.particles.size) / 350;
+        return point;
+      }
+      context.beginPath();
+      var t = -Math.PI;
+      var point = to(t);
+      context.moveTo(point.x, point.y);
+      while (t < Math.PI) {
+        t += 0.01;
+        point = to(t);
+        context.lineTo(point.x, point.y);
+      }
+      context.closePath();
+      context.fillStyle = "#ff6b81";
+      context.fill();
+      var img = new Image();
+      img.src = canvas.toDataURL();
+      return img;
+    })();
+
+    function render() {
+      requestAnimationFrame(render);
+      var newTime = new Date().getTime() / 1000,
+          deltaTime = newTime - (time || newTime);
+      time = newTime;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      var amount = particleRate * deltaTime;
+      for (var i = 0; i < amount; i++) {
+        var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
+        var dir = pos.clone().length(settings.particles.velocity);
+        particles.add(canvas.width/2 + pos.x, canvas.height/2 - pos.y, dir.x, -dir.y);
+      }
+
+      particles.update(deltaTime);
+      particles.draw(context, image);
+    }
+
+    function onResize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.onresize = onResize;
+    setTimeout(function() {
+      onResize();
+      render();
+    }, 10);
+  })(document.getElementById("pinkboard"));
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function() {
+      const music = document.getElementById('bgMusic');
+      music.play().catch(e => console.log("Autoplay prevented:", e));
+    }, { once: true });
+
+    const scrollDown = document.querySelector('.scroll-down');
+    const musicSection = document.querySelector('.music-section');
+
+    scrollDown.addEventListener('click', function() {
+      musicSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    setTimeout(() => {
+      musicSection.style.opacity = '1';
+    }, 7000);
+  });
+</script>
+
+</body>
+</html>
